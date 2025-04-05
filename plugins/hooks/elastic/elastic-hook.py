@@ -32,3 +32,8 @@ class ElasticHook(BaseHook):
         self.set_index(index)
         res = self.es.index(index=index, doc_type=doc_type, doc=doc)
         return res
+        
+        
+class AirflowElasticPlugin(AirflowPlugin):
+    name = 'elastic'
+    hooks = [ElasticHook]
